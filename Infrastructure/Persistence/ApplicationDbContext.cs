@@ -4,10 +4,12 @@ using Microsoft.Extensions.Logging;
 using System.Reflection;
 using System.Data;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Application.Common.Interfaces;
+using Domain.Entities;
 
 namespace Infrastructure.Persistence
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : DbContext, IApplicationDbContext
     {
         private readonly ILogger<ApplicationDbContext> _logger;
 
@@ -17,6 +19,10 @@ namespace Infrastructure.Persistence
         }
 
         public IDbContextTransaction? GetCurrentTransaction { get; private set; }
+
+        public DbSet<Ship> Ships => Set<Ship>();
+
+        public DbSet<Port> Ports => Set<Port>();
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {

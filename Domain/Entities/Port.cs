@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Domain.Common;
+using NetTopologySuite.Geometries;
 
 namespace Domain.Entities
 {
@@ -11,5 +7,11 @@ namespace Domain.Entities
     {
         public string Name { get; set; }
         public Point Location { get; set; }
+
+        public Port(string name, Point location)
+        {
+            Name = name;
+            Location = location;
+        }
     }
 }
