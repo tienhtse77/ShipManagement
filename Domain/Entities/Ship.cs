@@ -7,7 +7,7 @@ namespace Domain.Entities
     {
         public string Name { get; set; }
         public Point? Location { get; set; }
-        public double? Velocity { get; set; }
+        public double? Velocity { get; set; } // unit: km/h
 
         public Ship(string name)
         {

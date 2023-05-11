@@ -38,7 +38,6 @@ namespace Application.Ships.Commands.CreateShip
                 Velocity = request.Velocity
             };
 
-
             await _context.Ships.AddAsync(ship);
 
             return ship.Id;

@@ -7,6 +7,8 @@ namespace Application.Ports.Queries.GetClosestPort
     {
         public PortDto Port { get; set; }
         public DateTime EstimatedArrivalTime { get; set; }
+        public DistanceDto? Distance { get; set; }
+        public VelocityDto? Velocity { get; set; }
 
         public void Mapping(AutoMapper.Profile profile)
         {
@@ -34,5 +36,17 @@ namespace Application.Ports.Queries.GetClosestPort
     {
         public double Latitude { get; init; }
         public double Longitude { get; init; }
+    }
+
+    public class DistanceDto
+    {
+        public double? Value { get; init; }
+        public string Unit { get; init; } = "km";
+    }
+
+    public class VelocityDto
+    {
+        public double? Value { get; init; }
+        public string Unit { get; init; } = "km/h";
     }
 }

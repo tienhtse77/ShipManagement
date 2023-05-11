@@ -6,6 +6,7 @@ namespace Application.Ships.Queries.GetAllShips
 {
     public class ShipDto : IMapFrom<Ship>
     {
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public LocationVm? Location { get; set; }
         public double? Velocity { get; set; }

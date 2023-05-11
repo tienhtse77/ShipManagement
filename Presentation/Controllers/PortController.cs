@@ -1,10 +1,6 @@
-using Application.Ships.Commands.CreateShip;
-using Application.Ships.Commands.UpdateShipVelocity;
+using Application.Ports.Queries.GetClosestPort;
 using Application.Ships.Queries.GetAllShips;
-using Domain.Entities;
-using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace Presentation.Controllers
@@ -21,26 +17,10 @@ namespace Presentation.Controllers
         }
 
         [HttpGet("closest")]
-        public async Task<ActionResult<List<ShipDto>>> GetAllShips()
-        {
-            var result = await Mediator.Send(new GetAllShipsQuery());
-            return Ok(result);
-        }
-
-        [HttpPost]
-        public async Task<ActionResult<Guid>> CreateShip([FromBody] CreateShipCommand request)
+        public async Task<ActionResult<List<ShipDto>>> GetAllShips([FromQuery] GetClosestPortQuery request)
         {
             var result = await Mediator.Send(request);
             return Ok(result);
-        }
-
-        [HttpPut("{id:guid}/velocity")]
-        public async Task<IActionResult> UpdateShip(Guid id, UpdateShipVelocityCommand request)
-        {
-            request.Id = id;
-            await Mediator.Send(request);
-
-            return NoContent();
         }
     }
 }

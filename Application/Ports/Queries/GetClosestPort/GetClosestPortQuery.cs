@@ -54,6 +54,8 @@ namespace Application.Ports.Queries.GetClosestPort
             {
                 var distance = ship.Location.Distance(closestPort.Location);
                 result.EstimatedArrivalTime = DateTime.UtcNow.AddHours((double)(distance / ship.Velocity));
+                result.Distance = new DistanceDto() { Value = distance };
+                result.Velocity = new VelocityDto() { Value = ship.Velocity };
             }
 
             return result;
