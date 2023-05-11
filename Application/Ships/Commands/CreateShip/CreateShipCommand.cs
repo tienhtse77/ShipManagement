@@ -19,7 +19,7 @@ namespace Application.Ships.Commands.CreateShip
         public double? Longitude { get; init; }
     }
 
-    internal sealed class CreateShipCommandHandler : IRequestHandler<CreateShipCommand, Guid>
+    public sealed class CreateShipCommandHandler : IRequestHandler<CreateShipCommand, Guid>
     {
         private readonly IApplicationDbContext _context;
 

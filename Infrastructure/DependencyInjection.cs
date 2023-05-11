@@ -2,6 +2,7 @@
 using Infrastructure.Persistence;
 using Infrastructure.Persistence.DbInitializer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -14,7 +15,10 @@ namespace Infrastructure
             if (configuration.GetValue<bool>("UseInMemoryDatabase"))
             {
                 services.AddDbContext<ApplicationDbContext>(options =>
-                    options.UseInMemoryDatabase("ShipManagementDb"));
+                {
+                    options.UseInMemoryDatabase(Guid.NewGuid().ToString());
+                    options.ConfigureWarnings(x => x.Ignore(InMemoryEventId.TransactionIgnoredWarning));
+                });
             }
             else
             {

@@ -17,7 +17,7 @@ namespace Infrastructure.Persistence.DbInitializer
 
         public async Task InitializeAsync()
         {
-            if ((await _context.Database.GetPendingMigrationsAsync()).Any())
+            if (_context.Database.IsRelational() && (await _context.Database.GetPendingMigrationsAsync()).Any())
             {
                 await _context.Database.MigrateAsync();
                 _logger.LogInformation("Migrated database");
