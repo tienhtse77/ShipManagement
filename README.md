@@ -12,9 +12,9 @@ This solution is comprised of REST APIs that enable users to manage ships and fi
 To set up and run the project, please follow these steps:
 
 1. Clone the repository from GitHub
-2. Open the solution file (AE.Backend.CodeChallenge.sln) in Visual Studio or your preferred IDE.
+2. Open the solution file (ShipManagement.sln) in Visual Studio or your preferred IDE.
 3. Build the solution to restore the NuGet packages.
-4. Update the database connection string in the appsettings.json file to point to a local or remote MySQL Server instance.
+4. Update the `database connection string` in the `appsettings.json` file to point to a local or remote MySQL Server instance.
 5. Run the following commands in the Package Manager Console to apply the database migrations and seed the initial port data: Update-Database
 6. Run the application using IIS Express or your preferred web server.
 7. Access the API documentation using the Swagger UI, which can be found at /swagger/index.html.
