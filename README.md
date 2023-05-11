@@ -23,7 +23,6 @@ The solution includes the following API endpoints:
 
 ### Ships
 - `GET /api/ships`: Retrieves a list of all ships.
-- `GET /api/ships/{id}`: Retrieves a specific ship by ID.
 - `POST /api/ships`: Creates a new ship.
 - `PUT /api/ships/{id}`: Updates an existing ship by ID.
 ### Ports
